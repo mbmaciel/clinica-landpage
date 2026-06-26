@@ -25,6 +25,7 @@
       --ff-display:  'Poppins', system-ui, sans-serif;
       --ff-ui:       'Poppins', system-ui, sans-serif;
       --ease-expo:   cubic-bezier(0.19, 1, 0.22, 1);
+      --page-max:    1360px;
     }
 
     html { scroll-behavior: smooth; }
@@ -48,6 +49,8 @@
     /* ── NAV ─────────────────────────────────── */
     nav {
       position: fixed; inset: 0 0 auto;
+      left: 50%; right: auto; width: min(100%, var(--page-max));
+      transform: translateX(-50%);
       z-index: 900; height: 70px;
       display: flex; align-items: center;
       justify-content: space-between;
@@ -91,6 +94,19 @@
     }
     .nav-btn::after { display: none !important; }
     .nav-btn:hover { background: var(--citrus) !important; transform: translateY(-1px) !important; }
+
+    .hero,
+    .ticker,
+    #features,
+    #benefits,
+    .nums,
+    #pricing,
+    #cta,
+    footer {
+      max-width: var(--page-max);
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     /* ── HERO ────────────────────────────────── */
     .hero {
