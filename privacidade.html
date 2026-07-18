@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClinicWise — Política de Privacidade</title>
+  
+  <meta name="description" content="Política de Privacidade e Proteção de Dados da plataforma ClinicWise." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --emerald:     #0057A8;
+      --emerald-mid: #0A4A88;
+      --emerald-lt:  #1282C7;
+      --citrus:      #31AE52;
+      --citrus-lt:   #6EDB7D;
+      --gold:        #85D65A;
+      --cream:       #F3FAFF;
+      --cream-dk:    #E1F2FB;
+      --sand:        #C7E8D3;
+      --ink:         #0A1F36;
+      --white:       #FFFFFF;
+      --gray-light:  #F8FAFC;
+      --ff-display:  'Poppins', system-ui, sans-serif;
+      --ff-ui:       'Poppins', system-ui, sans-serif;
+      --ease-expo:   cubic-bezier(0.19, 1, 0.22, 1);
+      --page-max:    1000px;
+    }
+
+    body {
+      font-family: var(--ff-ui);
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 9998;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: .45; mix-blend-mode: multiply;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(calc(100% - 2.5rem), 1440px);
+      height: 72px;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px) saturate(1.4);
+      border: 1px solid rgba(0, 87, 168, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 10px 40px rgba(0, 87, 168, 0.05);
+    }
+    .logo img { display: block; width: clamp(140px, 14vw, 185px); height: auto; }
+    .back-btn {
+      color: var(--emerald);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      transition: color .2s;
+    }
+    .back-btn:hover { color: var(--citrus); }
+
+    /* Page Header */
+    .header-banner {
+      background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-mid) 100%);
+      padding: 180px 2rem 80px;
+      text-align: center;
+      color: var(--white);
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
+    }
+    .header-banner h1 {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .header-banner p {
+      font-size: 1rem;
+      color: rgba(243, 250, 255, 0.75);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Content Layout */
+    .content-wrap {
+      max-width: var(--page-max);
+      margin: -40px auto 80px;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+    .terms-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: clamp(2rem, 5vw, 4.5rem);
+      border: 1px solid rgba(0, 87, 168, 0.06);
+      box-shadow: 0 20px 60px rgba(0, 87, 168, 0.05);
+    }
+
+    .meta-date {
+      font-size: .85rem;
+      color: rgba(10,31,54,.45);
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      border-bottom: 1px solid rgba(0,87,168,.06);
+      padding-bottom: 1rem;
+    }
+
+    .clause {
+      margin-bottom: 3rem;
+    }
+    .clause h2 {
+      font-family: var(--ff-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--emerald-mid);
+      margin-bottom: 1.2rem;
+      border-left: 4px solid var(--citrus);
+      padding-left: .8rem;
+    }
+    .clause h3 {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 1.5rem 0 .6rem;
+    }
+    .clause p {
+      font-size: .95rem;
+      color: rgba(10,31,54,.65);
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+    .clause ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+      color: rgba(10,31,54,.65);
+      font-size: .95rem;
+    }
+    .clause li {
+      margin-bottom: .5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--ink);
+      padding: 40px 1.5rem;
+      text-align: center;
+      border-top-left-radius: 32px;
+      border-top-right-radius: 32px;
+      color: rgba(243,250,255,.4);
+      font-size: .85rem;
+    }
+    footer a { color: rgba(243,250,255,.6); text-decoration: none; transition: color .2s; }
+    footer a:hover { color: var(--white); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo" aria-label="ClinicWise Home">
+    <img src="assets/clinicwise_logo.png" alt="ClinicWise" />
+  </a>
+  <a href="index.html" class="back-btn">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Voltar ao Início
+  </a>
+</nav>
+
+<!-- HEADER BANNER -->
+<header class="header-banner">
+  <h1>Política de Privacidade e Proteção de Dados</h1>
+  <p>Entenda como a ClinicWise coleta, utiliza, armazena e protege as informações pessoais de seus usuários e pacientes.</p>
+</header>
+
+<!-- TERMS CONTENT -->
+<main class="content-wrap">
+  <article class="terms-card">
+    <div class="meta-date">Última atualização: 18 de Julho de 2026</div>
+
+    <section class="clause">
+      <h2>1. INTRODUÇÃO E COMPROMISSO</h2>
+      <p>A ClinicWise preza pela manutenção da privacidade e segurança de seus dados. Esta Política de Privacidade reflete nosso compromisso em tratar os dados pessoais de nossos Usuários com segurança, privacidade e, acima de tudo, transparência.</p>
+      <p>A ClinicWise LTDA, sediada no Rio de Janeiro - RJ, atuando no escopo de suas atividades como operadora e, em determinados cadastros diretos, como controladora de dados pessoais, estabelece as diretrizes de privacidade regidas pela legislação nacional, em especial a Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018).</p>
+    </section>
+
+    <section class="clause">
+      <h2>2. DEFINIÇÕES IMPORTANTES</h2>
+      <p>Para simplificar o entendimento desta Política, adotamos as seguintes nomenclaturas:</p>
+      <ul>
+        <li><strong>Dado Pessoal:</strong> Qualquer informação que se refira a uma pessoa natural (física) identificada ou identificável (por exemplo: nome, e-mail, CPF, telefone).</li>
+        <li><strong>Dado Pessoal Sensível:</strong> Dados que tratam de aspectos íntimos do indivíduo, como dados sobre a saúde (prontuários, anamnese, exames), origem étnica, convicções religiosas ou dados genéticos/biométricos.</li>
+        <li><strong>Tratamento:</strong> Qualquer operação realizada com dados pessoais (como coleta, armazenamento, processamento, visualização, exclusão ou compartilhamento).</li>
+        <li><strong>Controlador:</strong> Aquele a quem competem as decisões sobre o tratamento de dados pessoais (neste caso, o Usuário contratante/clínica ao gerir dados de seus pacientes).</li>
+        <li><strong>Operador:</strong> Aquele que realiza o tratamento de dados em nome do Controlador (neste caso, a ClinicWise ao prover o software de nuvem e ferramentas de armazenamento).</li>
+      </ul>
+    </section>
+
+    <section class="clause">
+      <h2>3. DADOS COLETADOS E FINALIDADE</h2>
+      <p>A ClinicWise coleta dados em dois contextos distintos de utilização:</p>
+      
+      <h3>3.1. Dados dos Usuários Contratantes (Profissionais de Saúde e Clínicas)</h3>
+      <p>Para criação de conta, emissão de faturamento e suporte, coletamos:</p>
+      <ul>
+        <li>Nome completo, e-mail, telefone comercial, CPF ou CNPJ da clínica.</li>
+        <li>Número do registro de conselho de classe profissional (CRM, CRO, CRP, CREFITO, CRN, etc.).</li>
+        <li>Dados de pagamento e dados de faturamento.</li>
+      </ul>
+      <p><strong>Finalidade:</strong> Viabilizar a execução do contrato de licença do software, prestar suporte técnico, enviar avisos de segurança e realizar cobranças.</p>
+
+      <h3>3.2. Dados dos Pacientes (Inseridos pelos Usuários)</h3>
+      <p>O Usuário utiliza a plataforma para registrar dados de seus Pacientes, incluindo:</p>
+      <ul>
+        <li>Dados básicos: Nome, idade, e-mail, telefone celular para confirmação de consultas.</li>
+        <li>Dados de saúde (sensíveis): Ficha de anamnese, registros de prontuário, planos de tratamento, prescrições e imagens de exames.</li>
+      </ul>
+      <p><strong>Finalidade:</strong> Armazenar de forma segura o histórico de atendimento dos Pacientes do Usuário. Neste cenário, a ClinicWise opera estritamente sob as ordens e configurações do Usuário contratante (Controlador), não utilizando esses dados para qualquer outra finalidade própria.</p>
+    </section>
+
+    <section class="clause">
+      <h2>4. DIREITOS DOS TITULARES DE DADOS</h2>
+      <p>A ClinicWise garante aos titulares de dados pessoais o pleno exercício de seus direitos previstos pela LGPD, incluindo:</p>
+      <ul>
+        <li>Confirmação da existência de tratamento de seus dados.</li>
+        <li>Acesso facilitado aos dados armazenados.</li>
+        <li>Correção de dados incompletos, inexatos ou desatualizados.</li>
+        <li>Eliminação dos dados pessoais tratados com o consentimento do titular (salvo hipóteses legais de retenção de prontuário de saúde).</li>
+        <li>Portabilidade dos dados.</li>
+      </ul>
+      <p>Para dados de Pacientes, a solicitação deve ser feita diretamente ao profissional de saúde ou clínica (Controlador), cabendo à ClinicWise colaborar prontamente com a exclusão ou exportação solicitada pelo Usuário.</p>
+    </section>
+
+    <section class="clause">
+      <h2>5. SEGURANÇA DAS INFORMAÇÕES</h2>
+      <p>Adotamos medidas rígidas de segurança técnica e administrativa para resguardar a integridade e privacidade de todos os dados armazenados na plataforma:</p>
+      <ul>
+        <li>Uso de criptografia ponta a ponta na transmissão dos dados (SSL/HTTPS).</li>
+        <li>Armazenamento em infraestrutura de nuvem segura com controles de acesso granular e restrito.</li>
+        <li>Backup diário estruturado para assegurar a recuperação rápida de dados em caso de sinistros.</li>
+        <li>Auditoria interna de logs de acesso e modificações na plataforma.</li>
+      </ul>
+    </section>
+
+    <section class="clause">
+      <h2>6. COMPARTILHAMENTO COM TERCEIROS</h2>
+      <p>Os dados tratados pela ClinicWise não são divulgados, cedidos ou comercializados a terceiros em nenhuma hipótese. O compartilhamento ocorre apenas:</p>
+      <ul>
+        <li>Com provedores de tecnologia parceiros essenciais para o funcionamento do sistema (como servidores de hospedagem na nuvem e gateways de pagamento seguros), sob rigoroso dever contratual de confidencialidade.</li>
+        <li>Para o disparo de lembretes via SMS/WhatsApp quando ativado pelo Usuário.</li>
+        <li>Em cumprimento de ordem judicial ou obrigação regulatória.</li>
+      </ul>
+    </section>
+
+    <section class="clause">
+      <h2>7. RETENÇÃO E EXCLUSÃO</h2>
+      <p>Os dados dos Usuários e seus Pacientes são mantidos na ClinicWise enquanto a assinatura do serviço estiver ativa. Em caso de cancelamento, a ClinicWise resguarda a guarda das informações pelo prazo regulatório de prontuários de saúde (e conformidade civil), fornecendo ferramentas de backup para o Usuário extrair seus registros antes da eliminação definitiva.</p>
+    </section>
+
+    <section class="clause">
+      <h2>8. CONTATO DO DPO / ENCARREGADO</h2>
+      <p>Em caso de dúvidas sobre nossa Política de Privacidade, reclamações sobre tratamento de dados ou solicitações ligadas aos direitos do titular, entre em contato direto com o nosso encarregado de dados (DPO):</p>
+      <ul>
+        <li><strong>E-mail de contato:</strong> contato@clinicwise.com.br</li>
+        <li><strong>WhatsApp:</strong> (21) 98295-7672</li>
+      </ul>
+    </section>
+
+    <section class="clause">
+      <h2>9. ALTERAÇÕES NESTA POLÍTICA</h2>
+      <p>Esta Política de Privacidade poderá ser modificada periodicamente para refletir novas funcionalidades do sistema ou atualizações das autoridades reguladoras (ANPD). Mudanças substanciais que afetem as finalidades de uso serão informadas aos Usuários cadastrados por e-mail com antecedência.</p>
+    </section>
+  </article>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 ClinicWise. Todos os direitos reservados. | Contato: <a href="mailto:contato@clinicwise.com.br">contato@clinicwise.com.br</a></p>
+</footer>
+
+</body>
+</html>
