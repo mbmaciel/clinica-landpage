@@ -18,12 +18,18 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --emerald:     #0057A8;
-      --emerald-mid: #0A4A88;
-      --emerald-lt:  #1282C7;
-      --citrus:      #31AE52;
-      --citrus-lt:   #6EDB7D;
-      --gold:        #85D65A;
+      --brand-blue:  #0057A8;
+      --brand-blue-dk:#0A4A88;
+      --brand-blue-lt:#1282C7;
+      --brand-green: #31AE52;
+      --brand-green-lt:#6EDB7D;
+      --brand-lime:  #85D65A;
+      --emerald:     var(--brand-blue);
+      --emerald-mid: var(--brand-blue-dk);
+      --emerald-lt:  var(--brand-blue-lt);
+      --citrus:      var(--brand-green);
+      --citrus-lt:   var(--brand-green-lt);
+      --gold:        var(--brand-lime);
       --cream:       #F3FAFF;
       --cream-dk:    #E1F2FB;
       --sand:        #C7E8D3;
@@ -118,6 +124,19 @@
       transform: translateY(-2px) !important;
       box-shadow: 0 6px 20px rgba(49, 174, 82, 0.25);
     }
+    .mobile-nav-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: var(--emerald);
+      color: var(--white);
+      padding: .62rem 1rem;
+      border-radius: 100px;
+      font-size: .8rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 87, 168, 0.14);
+    }
 
     /* ── CONTAINER ALIGNMENT ─────────────────── */
     .hero,
@@ -189,6 +208,28 @@
     }
 
     .hero-btns { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      flex-wrap: wrap;
+      margin-top: 1.4rem;
+    }
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .52rem .8rem;
+      border-radius: 100px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      color: rgba(243,250,255,.76);
+      font-size: .74rem;
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+    .trust-pill svg { color: var(--gold); flex: 0 0 auto; }
 
     .btn-cta {
       display: inline-flex; align-items: center; gap: .6rem;
@@ -428,10 +469,21 @@
       gap: 1.2rem;
       transition: all .3s var(--ease-expo);
       position: relative;
+      font-family: inherit;
+      width: 100%;
     }
     .tab-btn:hover {
       background: var(--gray-light);
       border-color: rgba(0, 87, 168, 0.12);
+    }
+    .tab-btn:focus-visible,
+    .mobile-nav-btn:focus-visible,
+    .btn-cta:focus-visible,
+    .btn-ghost-light:focus-visible,
+    .plan-btn:focus-visible,
+    .btn-dark:focus-visible {
+      outline: 3px solid rgba(49,174,82,.35);
+      outline-offset: 3px;
     }
     .tab-btn.active {
       background: var(--cream);
@@ -449,13 +501,27 @@
     .tab-btn.active::before { opacity: 1; }
 
     .tab-icon {
-      font-size: 1.5rem;
-      line-height: 1;
+      width: 44px;
+      height: 44px;
       padding: .6rem;
       border-radius: 12px;
       background: var(--white);
       box-shadow: 0 4px 10px rgba(0,87,168,.04);
       transition: all .3s;
+      color: var(--emerald);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+    .tab-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
     .tab-btn.active .tab-icon {
       background: var(--emerald);
@@ -674,8 +740,26 @@
       box-shadow: 0 20px 50px rgba(0, 87, 168, 0.08);
       border-color: rgba(0, 87, 168, 0.12);
     }
-    .spec-icon {
-      font-size: 2rem; margin-bottom: 1.2rem; display: inline-block;
+    .icon-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      color: var(--emerald);
+      background: rgba(0,87,168,.06);
+      box-shadow: inset 0 0 0 1px rgba(0,87,168,.05);
+    }
+    .icon-mark svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
     .spec-card h3 { font-size: 1.25rem; font-weight: 700; color: var(--emerald-mid); margin-bottom: .6rem; }
     .spec-card p { font-size: .88rem; line-height: 1.6; color: rgba(10,31,54,.55); }
@@ -717,7 +801,26 @@
       border-color: rgba(255,255,255,.25);
       transform: translateY(-3px);
     }
-    .ben-ico  { font-size: 1.5rem; margin-bottom: .6rem; }
+    .ben-ico  {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .8rem;
+      color: var(--gold);
+      background: rgba(255,255,255,.07);
+    }
+    .ben-ico svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
     .ben-title {
       font-family: var(--ff-display);
       font-size: 1.1rem; font-weight: 600;
@@ -924,30 +1027,62 @@
       gap: 6rem; align-items: center;
     }
     .cta-visual { display: flex; justify-content: center; }
-    .cta-orb {
-      width: 320px; height: 320px; border-radius: 50%;
-      border: 1px solid rgba(0,87,168,.08); position: relative;
-      display: flex; align-items: center; justify-content: center;
+    .trial-card {
+      width: min(100%, 390px);
+      background: var(--white);
+      border: 1px solid rgba(0,87,168,.08);
+      border-radius: 24px;
+      padding: 1.35rem;
+      box-shadow: 0 24px 70px rgba(0,87,168,.1);
     }
-    .cta-orb::before {
-      content: ''; position: absolute; inset: 0; border-radius: 50%;
-      border: 1px solid rgba(0,87,168,.04);
-      transform: scale(1.25);
+    .trial-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0,87,168,.07);
+      margin-bottom: 1rem;
     }
-    .cta-orb-inner {
-      width: 220px; height: 220px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; text-align: center; gap: .2rem;
-      box-shadow: 0 15px 40px rgba(0, 87, 168, 0.2);
+    .trial-card-title {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--emerald-mid);
+      text-transform: uppercase;
+      letter-spacing: .08em;
     }
-    .orb-val { font-family: var(--ff-display); font-size: 3.5rem; font-weight: 700; color: var(--white); line-height: 1; }
-    .orb-lbl { font-size: .68rem; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; color: rgba(243,250,255,.6); }
-    .cta-dots-ring { position: absolute; inset: 0; border-radius: 50%; animation: spin 20s linear infinite; }
-    .cd { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); transform: translate(-50%,-50%); }
-    .cd:nth-child(1) { top: 3%; left: 50%; }
-    .cd:nth-child(2) { top: 50%; right: -1%; left: auto; transform: translate(50%,-50%); }
-    .cd:nth-child(3) { bottom: 3%; left: 50%; transform: translate(-50%,50%); }
+    .trial-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .38rem .7rem;
+      border-radius: 100px;
+      background: rgba(49,174,82,.09);
+      color: var(--citrus);
+      font-size: .72rem;
+      font-weight: 700;
+    }
+    .trial-list {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .trial-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .85rem .95rem;
+      border-radius: 14px;
+      background: var(--gray-light);
+      color: rgba(10,31,54,.68);
+      font-size: .84rem;
+      font-weight: 600;
+    }
+    .trial-row strong {
+      color: var(--emerald);
+      font-size: .88rem;
+    }
     
     .cta-text .h2 { margin-bottom: 1.25rem; }
     .cta-p { font-size: 1rem; line-height: 1.7; color: rgba(10,31,54,.58); max-width: 44ch; margin-bottom: 2.5rem; }
@@ -1083,10 +1218,34 @@
     @media (max-width: 768px) {
       nav { height: 64px; }
       .nav-links { display: none; }
+      .mobile-nav-btn { display: inline-flex; }
       .spec-grid { grid-template-columns: 1fr; }
       .ben-grid { grid-template-columns: 1fr; }
       .foot-top { grid-template-columns: 1fr; }
       .nums-divider { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+      }
+      .ticker-inner,
+      .orbit,
+      .cta-dots-ring,
+      .fc1,
+      .fc2 {
+        animation: none !important;
+      }
+      .reveal,
+      .stagger > *,
+      .hero-content > *,
+      .hero-right {
+        opacity: 1 !important;
+        transform: none !important;
+      }
     }
   </style>
 </head>
@@ -1097,6 +1256,7 @@
   <a href="#" class="logo" aria-label="ClinicWise">
     <img src="assets/clinicwise_logo.png" alt="ClinicWise" />
   </a>
+  <a href="https://app.clinicwise.com.br/cadastro-trial" class="mobile-nav-btn">Trial grátis</a>
   <ul class="nav-links">
     <li><a href="#interactive-features">Recursos</a></li>
     <li><a href="#onboarding">Como funciona</a></li>
@@ -1113,9 +1273,9 @@
   <div class="hero-content">
     <p class="hero-eyebrow">Gestão sem complicações</p>
     <h1 class="hero-title">
-      O software de<br>
-      gestão que sua<br>
-      clínica <em>merece</em>.
+      Reduza faltas,<br>
+      organize agendas<br>
+      e digitalize sua <em>clínica</em>.
     </h1>
     <p class="hero-sub">
       Centralize sua agenda, prontuários, financeiro e comunicação com pacientes em uma plataforma premium, extremamente rápida e fácil de usar.
@@ -1128,6 +1288,24 @@
       <a href="#interactive-features" class="btn-ghost-light">
         Ver recursos
       </a>
+    </div>
+    <div class="hero-trust" aria-label="Diferenciais do teste grátis">
+      <span class="trust-pill">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+        Sem cartão
+      </span>
+      <span class="trust-pill">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+        LGPD
+      </span>
+      <span class="trust-pill">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
+        WhatsApp incluso
+      </span>
+      <span class="trust-pill">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+        Migração gratuita
+      </span>
     </div>
     <div class="hero-stats">
       <div>
@@ -1260,38 +1438,38 @@
 
   <div class="features-container">
     <!-- Tabs Navigation (Left Column) -->
-    <div class="tabs-stack reveal">
-      <div class="tab-btn active" data-target="tab-agenda">
-        <span class="tab-icon">📅</span>
+    <div class="tabs-stack reveal" role="tablist" aria-label="Recursos da ClinicWise">
+      <button type="button" role="tab" class="tab-btn active" data-target="tab-agenda" aria-controls="tab-agenda">
+        <span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 14h3"/><path d="M14 14h2"/><path d="M8 17h2"/></svg></span>
         <div class="tab-btn-content">
           <h3 class="tab-title">Agenda Inteligente</h3>
           <p class="tab-desc">Gerencie múltiplos profissionais, evite conflitos de horários e configure regras de bloqueio com facilidade.</p>
         </div>
-      </div>
+      </button>
       
-      <div class="tab-btn" data-target="tab-prontuario">
-        <span class="tab-icon">📄</span>
+      <button type="button" role="tab" class="tab-btn" data-target="tab-prontuario" aria-controls="tab-prontuario">
+        <span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></span>
         <div class="tab-btn-content">
           <h3 class="tab-title">Prontuário Digital</h3>
           <p class="tab-desc">Histórico completo de atendimentos, receituários customizados e evolução do paciente em poucos cliques.</p>
         </div>
-      </div>
+      </button>
       
-      <div class="tab-btn" data-target="tab-financeiro">
-        <span class="tab-icon">💰</span>
+      <button type="button" role="tab" class="tab-btn" data-target="tab-financeiro" aria-controls="tab-financeiro">
+        <span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-4 3 3 5-7"/><path d="M15 8h4v4"/></svg></span>
         <div class="tab-btn-content">
           <h3 class="tab-title">Controle Financeiro</h3>
           <p class="tab-desc">Fluxo de caixa consolidado, controle de despesas e receitas, além de ferramentas de relatórios 360°.</p>
         </div>
-      </div>
+      </button>
       
-      <div class="tab-btn" data-target="tab-comunicacao">
-        <span class="tab-icon">💬</span>
+      <button type="button" role="tab" class="tab-btn" data-target="tab-comunicacao" aria-controls="tab-comunicacao">
+        <span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg></span>
         <div class="tab-btn-content">
           <h3 class="tab-title">Confirmação por WhatsApp</h3>
           <p class="tab-desc">Lembretes automatizados de consulta e integração que reduzem a taxa de ausência em até 40%.</p>
         </div>
-      </div>
+      </button>
     </div>
 
     <!-- Mockup Displays (Right Column) -->
@@ -1305,7 +1483,7 @@
         </div>
         
         <!-- Mockup: Agenda Panel -->
-        <div class="mockup-panel active" id="tab-agenda">
+        <div class="mockup-panel active" id="tab-agenda" role="tabpanel">
           <div class="mockup-agenda-grid">
             <div class="mag-hours">
               <span>08:00</span>
@@ -1341,7 +1519,7 @@
         </div>
 
         <!-- Mockup: Prontuário Panel -->
-        <div class="mockup-panel" id="tab-prontuario">
+        <div class="mockup-panel" id="tab-prontuario" role="tabpanel">
           <div class="mockup-prontuario-wrap">
             <div class="mp-patient-info">
               <div class="mp-avatar">AO</div>
@@ -1361,7 +1539,7 @@
         </div>
 
         <!-- Mockup: Financeiro Panel -->
-        <div class="mockup-panel" id="tab-financeiro">
+        <div class="mockup-panel" id="tab-financeiro" role="tabpanel">
           <div class="mockup-financeiro-wrap">
             <div class="mf-metrics">
               <div class="mf-card mf-green">
@@ -1386,7 +1564,7 @@
         </div>
 
         <!-- Mockup: WhatsApp Panel -->
-        <div class="mockup-panel" id="tab-comunicacao">
+        <div class="mockup-panel" id="tab-comunicacao" role="tabpanel">
           <div class="mockup-whatsapp-wrap">
             <div class="mwa-phone">
               <div class="mwa-chat-header">
@@ -1403,7 +1581,7 @@
                   1
                 </div>
                 <div class="mwa-bubble received">
-                  Ótimo! Sua presença foi confirmada e lançada no sistema da clínica. Até amanhã! 🌟
+                  Ótimo! Sua presença foi confirmada e lançada no sistema da clínica. Até amanhã!
                 </div>
               </div>
             </div>
@@ -1466,32 +1644,32 @@
   
   <div class="spec-grid stagger">
     <div class="spec-card">
-      <span class="spec-icon">🩺</span>
+      <span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3v5a6 6 0 0 0 12 0V3"/><path d="M12 14v3a4 4 0 0 0 8 0v-1"/><path d="M4 3h4"/><path d="M16 3h4"/><circle cx="20" cy="16" r="1.5"/></svg></span>
       <h3>Médicos</h3>
       <p>Prontuário ágil, busca rápida de termos de diagnóstico (CID-10) e receitas digitais válidas com assinatura ICP-Brasil.</p>
     </div>
     <div class="spec-card">
-      <span class="spec-icon">🦷</span>
+      <span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 3.5c1.5 0 2.2.8 3.5.8s2-.8 3.5-.8C18 3.5 20 5.6 20 9c0 4.8-2.3 11.5-4.5 11.5-1.3 0-1.1-4-3.5-4s-2.2 4-3.5 4C6.3 20.5 4 13.8 4 9c0-3.4 2-5.5 4.5-5.5Z"/></svg></span>
       <h3>Dentistas</h3>
       <p>Gerenciamento de fichas clínicas completas, odontograma, parcelamento de orçamentos e repasse de comissões.</p>
     </div>
     <div class="spec-card">
-      <span class="spec-icon">🧠</span>
+      <span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3a4 4 0 0 0-4 4 4 4 0 0 0 0 8 4 4 0 0 0 4 4"/><path d="M15 3a4 4 0 0 1 4 4 4 4 0 0 1 0 8 4 4 0 0 1-4 4"/><path d="M9 3v18"/><path d="M15 3v18"/><path d="M9 8h6"/><path d="M9 14h6"/></svg></span>
       <h3>Psicólogos</h3>
       <p>Espaço para anotações confidenciais, controle de sessões e envio automatizado de lembretes para redução de ausências.</p>
     </div>
     <div class="spec-card">
-      <span class="spec-icon">🏃</span>
+      <span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="m5 21 4-6"/><path d="m9 15 3-5 3 3 4 1"/><path d="m12 10-4 1-3 3"/><path d="m14 16 3 5"/></svg></span>
       <h3>Fisioterapeutas</h3>
       <p>Fichas de avaliação física e corporal, evolução de planos de tratamento por pacotes e relatórios consolidados.</p>
     </div>
     <div class="spec-card">
-      <span class="spec-icon">🍎</span>
+      <span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7c-3.5-3-8-.7-8 4.2 0 4.6 3.2 9.3 6 9.3 1 0 1.3-.5 2-.5s1 .5 2 .5c2.8 0 6-4.7 6-9.3C20 6.3 15.5 4 12 7Z"/><path d="M12 7c.2-2 1.6-3.5 4-4"/><path d="M12 7c-1.2-1.4-2.7-2-4.5-2"/></svg></span>
       <h3>Nutricionistas</h3>
       <p>Fácil controle de medidas e avaliações antropométricas, anexos de exames laboratoriais e fichas de acompanhamento.</p>
     </div>
     <div class="spec-card">
-      <span class="spec-icon">🏢</span>
+      <span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v16"/><path d="M17 9h1a2 2 0 0 1 2 2v10"/><path d="M8 7h5"/><path d="M8 11h5"/><path d="M8 15h5"/><path d="M3 21h18"/></svg></span>
       <h3>Clínicas Multidisciplinares</h3>
       <p>Agenda multiprofissional com permissões específicas de acesso por perfil e relatórios integrados de faturamento geral.</p>
     </div>
@@ -1516,32 +1694,32 @@
     </div>
     <div class="ben-grid stagger">
       <div class="ben-item">
-        <div class="ben-ico">📉</div>
+        <div class="ben-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 7 6 6 4-4 8 8"/><path d="M21 10v7h-7"/></svg></div>
         <div class="ben-title">Menos Faltas</div>
         <p class="ben-desc">Confirmações diretas via e-mail e WhatsApp reduzem ausências e buracos na agenda de forma ativa.</p>
       </div>
       <div class="ben-item">
-        <div class="ben-ico">⚡</div>
+        <div class="ben-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></div>
         <div class="ben-title">Processos Ágeis</div>
         <p class="ben-desc">Cadastros rápidos e histórico centralizado eliminam redigitação, economizando horas diárias.</p>
       </div>
       <div class="ben-item">
-        <div class="ben-ico">🌐</div>
+        <div class="ben-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg></div>
         <div class="ben-title">Agendamento Online</div>
         <p class="ben-desc">Disponibilidade atualizada em tempo real. Seus pacientes agendam 24 horas por dia.</p>
       </div>
       <div class="ben-item">
-        <div class="ben-ico">🔒</div>
+        <div class="ben-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
         <div class="ben-title">Dados Seguros</div>
         <p class="ben-desc">Criptografia total e permissões específicas por profissional para total confidencialidade.</p>
       </div>
       <div class="ben-item">
-        <div class="ben-ico">📈</div>
+        <div class="ben-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17 9 11l4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
         <div class="ben-title">Pronto para Escalar</div>
         <p class="ben-desc">Adapta-se a consultórios novos ou grandes clínicas em expansão com dezenas de colaboradores.</p>
       </div>
       <div class="ben-item">
-        <div class="ben-ico">💰</div>
+        <div class="ben-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <div class="ben-title">Transparência Total</div>
         <p class="ben-desc">Planos de preço fixo por clínica, sem taxas por profissional extra ou tarifas surpresas.</p>
       </div>
@@ -1692,15 +1870,19 @@
 <!-- CTA -->
 <section id="cta">
   <div class="cta-visual reveal">
-    <div class="cta-orb">
-      <div class="cta-dots-ring">
-        <div class="cd"></div>
-        <div class="cd"></div>
-        <div class="cd"></div>
+    <div class="trial-card" aria-label="Resumo do teste grátis ClinicWise">
+      <div class="trial-card-head">
+        <span class="trial-card-title">Teste ClinicWise</span>
+        <span class="trial-badge">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          7 dias grátis
+        </span>
       </div>
-      <div class="cta-orb-inner">
-        <span class="orb-val">7</span>
-        <span class="orb-lbl">Dias Grátis</span>
+      <div class="trial-list">
+        <div class="trial-row"><span>Cadastro</span><strong>2 min</strong></div>
+        <div class="trial-row"><span>Cartão de crédito</span><strong>Não precisa</strong></div>
+        <div class="trial-row"><span>Recursos liberados</span><strong>Todos</strong></div>
+        <div class="trial-row"><span>Migração assistida</span><strong>Inclusa</strong></div>
       </div>
     </div>
   </div>
@@ -1769,6 +1951,7 @@
 <script>
 // ── HEADER GLASS SCROLL TOGGLE ──────────────────────
 const nav = document.getElementById('nav');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', scrollY > 30);
 }, { passive: true });
@@ -1822,7 +2005,7 @@ const urls = {
 };
 
 let activeTabIdx = 0;
-let tabInterval = setInterval(rotateTabs, 6500);
+let tabInterval = reduceMotion ? null : setInterval(rotateTabs, 6500);
 
 function rotateTabs() {
   activeTabIdx = (activeTabIdx + 1) % tabBtns.length;
@@ -1832,34 +2015,54 @@ function rotateTabs() {
 function activateTab(index) {
   tabBtns.forEach((b, i) => {
     b.classList.toggle('active', i === index);
+    b.setAttribute('aria-selected', i === index ? 'true' : 'false');
   });
   panels.forEach((p, i) => {
     p.classList.toggle('active', i === index);
+    p.toggleAttribute('hidden', i !== index);
   });
   const targetId = tabBtns[index].dataset.target;
   browserUrl.textContent = urls[targetId];
 }
 
 tabBtns.forEach((btn, idx) => {
+  btn.setAttribute('aria-selected', idx === activeTabIdx ? 'true' : 'false');
   btn.addEventListener('click', () => {
-    clearInterval(tabInterval); // Stop auto cycling on user click
+    if (tabInterval) clearInterval(tabInterval); // Stop auto cycling on user click
     activeTabIdx = idx;
     activateTab(idx);
   });
 });
+panels.forEach((p, i) => p.toggleAttribute('hidden', i !== activeTabIdx));
 
 // ── 3D TILT EFFECT ON CARDS ─────────────────────────
-document.querySelectorAll('.spec-card, .onb-card, .ben-item, .plan').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    const x = ((e.clientX - r.left) / r.width  - .5) * 6;
-    const y = ((e.clientY - r.top)  / r.height - .5) * 6;
-    card.style.transform = `translateY(-5px) perspective(800px) rotateY(${x}deg) rotateX(${-y}deg)`;
+if (!reduceMotion) {
+  document.querySelectorAll('.spec-card, .onb-card, .ben-item, .plan').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width  - .5) * 6;
+      const y = ((e.clientY - r.top)  / r.height - .5) * 6;
+      card.style.transform = `translateY(-5px) perspective(800px) rotateY(${x}deg) rotateX(${-y}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
   });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-});
+}
 </script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/58b8160597fbd80a94f250f7/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>
